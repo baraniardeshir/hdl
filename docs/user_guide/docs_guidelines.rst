@@ -17,7 +17,7 @@ Templates are available:
 
 * :git-hdl:`docs/library/template_ip` (:ref:`rendered <template_ip>`).
 * :git-hdl:`docs/library/template_framework` (:ref:`rendered <template_framework>`).
-* :git-hdl:`docs/projects/template` (:ref:`rendered <template_project>`).
+* :git-hdl:`docs/projects/template_project` (:ref:`rendered <template_project>`).
 
 Remove the ``:orphan:`` in the first line, it is to hide the templates from the
 `TOC tree <https://www.sphinx-doc.org/en/master/usage/restructuredtext/directives.html#directive-toctree>`_.
