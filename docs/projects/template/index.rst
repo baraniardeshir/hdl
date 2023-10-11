@@ -560,6 +560,38 @@ DAC phy Lane FPGA Tx lane / Logical Lane
 Resources
 -------------------------------------------------------------------------------
 
+Systems related
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  Links to the Quick start guides, to the pages where the hardware changes are
+   specified in detail, etc. in the form of a table as the one below
+
+**THIS IS JUST AN EXAMPLE**
+
+-  :dokuwiki:`[Wiki] AD9081 & AD9082 & AD9988 & AD9986 Prototyping Platform User Guide <resources/eval/user-guides/ad9081_fmca_ebz>`
+-  Here you can find all the quick start guides on wiki documentation:dokuwiki:`[Wiki] AD9081 Quick Start Guides <resources/eval/user-guides/ad9081_fmca_ebz/quickstart>`
+
+Here you can find the quick start guides available for these evaluation boards:
+
+.. list-table::
+   :widths: 20 10 20 20 20 10
+   :header-rows: 1
+
+   * - Evaluation board
+     - Zynq-7000
+     - Zynq UltraScale+ MP
+     - Microblaze
+     - Versal
+     - Arria 10
+   * - AD9081/AD9082-FMCA-EBZ
+     - :dokuwiki:`ZC706 <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/zynq>`
+     - :dokuwiki:`ZCU102 <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/zynqmp>`
+     - :dokuwiki:`VCU118 <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/microblaze>`
+     - :dokuwiki:`VCK190/VMK180 <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/versal>`
+     - :dokuwiki:`A10SoC <resources/eval/user-guides/ad9081/quickstart/a10soc>`
+
+-  Other relevant information
+
 Hardware related
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -575,23 +607,70 @@ Hardware related
 HDL related
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  Links to the code of the specific IPs (eg. library/axi_ad9783)
--  Link to the code of the project (eg. projects/ad9081_fmca_ebz)
+-  Link to the project source code
+-  Table like the one below. Must have as first IP (if it exists) the IP that
+   was created with this project (i.e., axi_ad9783). If there isn't, then to
+   be taken in the order they are written in the Makefile of the project,
+   stating the source code link in a column and the documentation link in
+   another column
+-  Other relevant information
 
--  Links to the code of the IPs used in this project (eg. library/util_pack/util_cpack2)
+**THIS IS JUST AN EXAMPLE**
 
--  Link to the documentation of axi_ad9783
--  Links to the documentation of the IPs used in this project
+-  :git-hdl:`AD9081_FMCA_EBZ HDL project source code <master:projects/ad9081_fmca_ebz>`
+-  :git-hdl:`AD9082_FMCA_EBZ HDL project source code <master:projects/ad9082_fmca_ebz>`
 
--  Other relevant HDL documents to the project, like:
+.. list-table::
+   :widths: 30 35 35
+   :header-rows: 1
 
-   -  :dokuwiki:`Generic JESD204B block designs <resources/fpga/docs/hdl/generic_jesd_bds>`
-   -  :dokuwiki:`JESD204B High-Speed Serial Interface Support <resources/fpga/peripherals/jesd204>`
+   * - IP name
+     - Source code link
+     - Documentation link
+   * - AXI_DMAC
+     - :git-hdl:`library/axi_dmac <master:library/axi_dmac>`
+     - :ref:`here <axi_dmac>`
+   * - AXI_SYSID
+     - :git-hdl:`library/axi_sysid <master:library/axi_sysid>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/axi_sysid>`
+   * - SYSID_ROM
+     - :git-hdl:`library/sysid_rom <master:library/sysid_rom>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/axi_sysid>`
+   * - UTIL_CPACK2
+     - :git-hdl:`library/util_pack/util_cpack2 <master:library/util_pack/util_cpack2>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/util_cpack>`
+   * - UTIL_UPACK2
+     - :git-hdl:`library/util_pack/util_upack2 <master:library/util_pack/util_upack2>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/util_upack>`
+   * - UTIL_ADXCVR for AMD
+     -  :git-hdl:`library/xilinx/util_adxcvr <master:library/xilinx/util_adxcvr>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/docs/util_xcvr>`
+   * - AXI_ADXCVR for Intel
+     -  :git-hdl:`library/intel/axi_adxcvr <master:library/intel/axi_adxcvr>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/docs/axi_adxcvr>`
+   * - AXI_ADXCVR for AMD
+     -  :git-hdl:`library/intel/axi_adxcvr <master:library/xilinx/axi_adxcvr>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/docs/axi_adxcvr>`
+   * - AXI_JESD204_RX
+     -  :git-hdl:`library/jesd204/axi_jesd204_rx <master:library/jesd204/axi_jesd204_rx>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/peripherals/jesd204/axi_jesd204_rx>`
+   * - AXI_JESD204_TX
+     -  :git-hdl:`library/jesd204/axi_jesd204_tx <master:library/jesd204/axi_jesd204_tx>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/peripherals/jesd204/axi_jesd204_tx>`
+   * - JESD204_TPL_ADC
+     -  :git-hdl:`library/jesd204/jesd204_tpl_adc <master:library/jesd204/jesd204_tpl_adc>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/peripherals/jesd204/jesd204_tpl_adc>`
+   * - JESD204_TPL_DAC
+     -  :git-hdl:`library/jesd204/jesd204_tpl_dac <master:library/jesd204/jesd204_tpl_dac>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/peripherals/jesd204/jesd204_tpl_dac>`
+
+-  :dokuwiki:`[Wiki] Generic JESD204B block designs <resources/fpga/docs/hdl/generic_jesd_bds>`
+-  :dokuwiki:`[Wiki] JESD204B High-Speed Serial Interface Support <resources/fpga/peripherals/jesd204>`
 
 Software related
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-\**\* THIS IS JUST AN EXAMPLE \**\*
+**THIS IS JUST AN EXAMPLE**
 
 -  :dokuwiki:`[Wiki] AD9081-FMCA-EBZ Linux driver wiki page <resources/tools-software/linux-drivers/iio-mxfe/ad9081>`
 
@@ -602,18 +681,6 @@ and of the device tree.
 
    -  `AD9081 class documentation <https://analogdevicesinc.github.io/pyadi-iio/devices/adi.ad9081.html>`__
    -  `PyADI-IIO documentation <https://analogdevicesinc.github.io/pyadi-iio/>`__
-
-Systems related
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
--  Links to the Quick start guides, to the pages where the hardware changes are
-   specified in detail, etc.
-
-\**\* THIS IS JUST AN EXAMPLE \**\*
-
--  :dokuwiki:`AD9081 Quick Start Guides <resources/eval/user-guides/ad9081_fmca_ebz/quickstart>`
-
--  Other relevant information
 
 .. include:: ../common/more_information.rst
 

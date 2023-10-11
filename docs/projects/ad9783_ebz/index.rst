@@ -25,6 +25,8 @@ Supported boards
 Supported devices
 -------------------------------------------------------------------------------
 
+-  :part:`AD9780`
+-  :part:`AD9781`
 -  :part:`AD9783`
 
 Supported carriers
@@ -134,11 +136,35 @@ connection looks like this:
 Resources
 -------------------------------------------------------------------------------
 
+Systems related
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Here you can find the quick start guides available for these evaluation boards:
+
+.. list-table::
+   :widths: 20 10 20 20 20 10
+   :header-rows: 1
+
+   * - Evaluation board
+     - Zynq-7000
+     - Zynq UltraScale+ MP
+     - Microblaze
+     - Versal
+     - Arria 10
+   * - AD9783-EBZ
+     - ---
+     - :dokuwiki:`[Wiki] ZCU102 <resources/fpga/xilinx/interposer/ad9783>`
+     - ---
+     - ---
+     - ---
+
 Hardware related
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  Product datasheets:
 
+   -  :part:`AD9780`
+   -  :part:`AD9781`
    -  :part:`AD9783`
    -  :part:`EVAL-AD9783`
    -  :part:`AD-DAC-FMC`-ADP
@@ -146,30 +172,36 @@ Hardware related
 HDL related
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :git-hdl:`AXI_AD9783 <master:library/axi_ad9783>`
--  :git-hdl:`AD9783_EBZ HDL project <master:projects/ad9783_ebz>`
+-  :git-hdl:`AD9783_EBZ HDL project source code <master:projects/ad9783_ebz>`
 
--  :git-hdl:`AXI_DMAC <master:library/axi_dmac>`
--  :git-hdl:`AXI_SYSID <master:library/axi_sysid>`
--  :git-hdl:`SYSID_ROM <master:library/sysid_rom>`
--  :git-hdl:`UTIL_UPACK2 <master:library/util_pack/util_upack2>`
+.. list-table::
+   :widths: 30 35 35
+   :header-rows: 1
 
--  :dokuwiki:`[Wiki] AD9783-EBZ Quick Start Guide <resources/fpga/xilinx/interposer/ad9783>`
-
--  :ref:`AXI_DMAC <axi_dmac>`
--  :dokuwiki:`AXI_SYSID and SYSID_ROM <resources/fpga/docs/axi_sysid>`
--  :dokuwiki:`[Wiki] UTIL_CPACK2 (Channel CPACK Utility Core) <resources/fpga/docs/util_cpack>`
+   * - IP name
+     - Source code link
+     - Documentation link
+   * - AXI_AD9783
+     - :git-hdl:`library/axi_ad9783 <master:library/axi_ad9783>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/axi_ad9783>`
+   * - AXI_DMAC
+     - :git-hdl:`library/axi_dmac <master:library/axi_dmac>`
+     - :ref:`here <axi_dmac>`
+   * - AXI_SYSID
+     - :git-hdl:`library/axi_sysid <master:library/axi_sysid>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/axi_sysid>`
+   * - SYSID_ROM
+     - :git-hdl:`library/sysid_rom <master:library/sysid_rom>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/axi_sysid>`
+   * - UTIL_UPACK2
+     - :git-hdl:`library/util_pack/util_upack2 <master:library/util_pack/util_upack2>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/util_upack>`
 
 Software related
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 -  :git-linux:`Linux device tree zynqmp-zcu102-rev10-ad9783.dts <master:arch/arm64/boot/dts/xilinx/zynqmp-zcu102-rev10-ad9783.dts>`
 -  :git-linux:`Linux driver ad9783.c <master:drivers/iio/frequency>`
-
-Systems related
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
--  :dokuwiki:`[Wiki] AD9783-EBZ Quick Start Guide <resources/fpga/xilinx/interposer/ad9783>`
 
 .. include:: ../common/more_information.rst
 

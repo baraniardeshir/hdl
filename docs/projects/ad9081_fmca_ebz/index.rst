@@ -46,30 +46,60 @@ Supported devices
 
 -  :part:`AD9081`
 -  :part:`AD9082`
--  :part:`AD9988`
--  :part:`AD9986`
+-  :part:`AD9177`
 -  :part:`AD9207`
 -  :part:`AD9209`
--  :part:`AD9177`
+-  :part:`AD9986`
+-  :part:`AD9988`
 
 Supported carriers
 -------------------------------------------------------------------------------
 
--  For :part:`AD9081-FMCA-EBZ <EVAL-AD9081>`
+.. list-table::
+   :widths: 35 35 30
+   :header-rows: 1
 
-   -  `A10SoC`_ on FMCA
-   -  :xilinx:`VCK190` on FMC0 slot
-   -  :xilinx:`VCU118` on FMC+ slot
-   -  :xilinx:`VCU128` on FMC+ slot
-   -  :xilinx:`ZCU102` on FMC HPC0 slot
-   -  :xilinx:`ZC706` on FMC HPC slot
+   * - Evaluation board
+     - Carrier
+     - FMC slot
+   * - :part:`AD9081-FMCA-EBZ <EVAL-AD9081>`
+     - `A10SoC`_
+     - FMCA
+   * -
+     - :xilinx:`VCK190`
+     - FMC0
+   * -
+     - :xilinx:`VCU118`
+     - FMC+
+   * -
+     - :xilinx:`VCU128`
+     - FMC+
+   * -
+     - :xilinx:`ZCU102`
+     - FMC HPC0
+   * -
+     - :xilinx:`ZC706`
+     - FMC HPC
 
--  For :part:`AD9082-FMCA-EBZ <EVAL-AD9082>`
+.. list-table::
+   :widths: 35 35 30
+   :header-rows: 1
 
-   -  :xilinx:`VCK190` on FMC0 slot
-   -  :xilinx:`VCU118` on FMC+ slot
-   -  :xilinx:`ZCU102` on FMC HPC0 slot
-   -  :xilinx:`ZC706` on FMC HPC slot
+   * - Evaluation board
+     - Carrier
+     - FMC slot
+   * - :part:`AD9082-FMCA-EBZ <EVAL-AD9082>`
+     - :xilinx:`VCK190`
+     - FMC0
+   * -
+     - :xilinx:`VCU118`
+     - FMC+
+   * -
+     - :xilinx:`ZCU102`
+     - FMC HPC0
+   * -
+     - :xilinx:`ZC706`
+     - FMC HPC
 
 Block design
 -------------------------------------------------------------------------------
@@ -189,7 +219,7 @@ Example block design for Single link; M=2; L=8; JESD204C
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 .. note::
 
-   In 2019_R2 release, the Xilinx JESD Physical layer IP Core is used,
+   In 2019_R2 release, the AMD JESD Physical layer IP Core is used,
    however in newer versions it is replaced with ADI's util_adxcvr IP core.
 
 .. image:: ../images/ad9081_204c_M2L8.svg
@@ -639,6 +669,31 @@ DAC phy lane FPGA Tx lane / Logical lane
 Resources
 -------------------------------------------------------------------------------
 
+Systems related
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+-  :dokuwiki:`[Wiki] AD9081 & AD9082 & AD9988 & AD9986 Prototyping Platform User Guide <resources/eval/user-guides/ad9081_fmca_ebz>`
+-  Here you can find all the quick start guides on wiki documentation:dokuwiki:`[Wiki] AD9081 Quick Start Guides <resources/eval/user-guides/ad9081_fmca_ebz/quickstart>`
+
+Here you can find the quick start guides available for these evaluation boards:
+
+.. list-table::
+   :widths: 20 10 20 20 20 10
+   :header-rows: 1
+
+   * - Evaluation board
+     - Zynq-7000
+     - Zynq UltraScale+ MP
+     - Microblaze
+     - Versal
+     - Arria 10
+   * - AD9081/AD9082-FMCA-EBZ
+     - :dokuwiki:`ZC706 <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/zynq>`
+     - :dokuwiki:`ZCU102 <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/zynqmp>`
+     - :dokuwiki:`VCU118 <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/microblaze>`
+     - :dokuwiki:`VCK190/VMK180 <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/versal>`
+     - :dokuwiki:`A10SoC <resources/eval/user-guides/ad9081/quickstart/a10soc>`
+
 Hardware related
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -654,29 +709,53 @@ Hardware related
 HDL related
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
--  :git-hdl:`AD9081_FMCA_EBZ HDL project <master:projects/ad9081_fmca_ebz>`
--  :git-hdl:`AD9082_FMCA_EBZ HDL project <master:projects/ad9082_fmca_ebz>`
+-  :git-hdl:`AD9081_FMCA_EBZ HDL project source code <master:projects/ad9081_fmca_ebz>`
+-  :git-hdl:`AD9082_FMCA_EBZ HDL project source code <master:projects/ad9082_fmca_ebz>`
 
--  :git-hdl:`AXI_DMAC <master:library/axi_dmac>`
--  :git-hdl:`UTIL_CPACK2 <master:library/util_pack/util_cpack2>`
--  :git-hdl:`UTIL_UPACK2 <master:library/util_pack/util_upack2>`
--  :git-hdl:`UTIL_ADXCVR <master:library/xilinx/util_adxcvr>`
--  :git-hdl:`AXI_ADXCVR for Intel <master:library/intel/axi_adxcvr>`
--  :git-hdl:`AXI_ADXCVR for Xilinx <master:library/xilinx/axi_adxcvr>`
--  :git-hdl:`AXI_JESD204_RX <master:library/jesd204/axi_jesd204_rx>`
--  :git-hdl:`AXI_JESD204_TX <master:library/jesd204/axi_jesd204_tx>`
--  :git-hdl:`JESD204_TPL_ADC <master:library/jesd204/jesd204_tpl_adc>`
--  :git-hdl:`JESD204_TPL_DAC <master:library/jesd204/jesd204_tpl_dac>`
+.. list-table::
+   :widths: 30 35 35
+   :header-rows: 1
 
--  :ref:`AXI_DMAC <axi_dmac>`
--  :dokuwiki:`[Wiki] UTIL_CPACK2 (Channel CPACK Utility Core) <resources/fpga/docs/util_cpack>`
--  :dokuwiki:`[Wiki] UTIL_UPACK2 (Channel UNPACK Utility Core) <resources/fpga/docs/util_upack>`
--  :dokuwiki:`[Wiki] UTIL_ADXCVR core for Xilinx devices <resources/fpga/docs/util_xcvr>`
--  :dokuwiki:`[Wiki] AXI_ADXCVR <resources/fpga/docs/axi_adxcvr>`
--  :dokuwiki:`[Wiki] AXI_JESD204_RX (JESD204B/C Link Receive Peripheral) <resources/fpga/peripherals/jesd204/axi_jesd204_rx>`
--  :dokuwiki:`[Wiki] AXI_JESD204_TX (JESD204B/C Link Transmit Peripheral) <resources/fpga/peripherals/jesd204/axi_jesd204_tx>`
--  :dokuwiki:`[Wiki] JESD204_TPL_ADC (ADC JESD204B/C Transport Peripheral) <resources/fpga/peripherals/jesd204/jesd204_tpl_adc>`
--  :dokuwiki:`[Wiki] JESD204_TPL_DAC (DAC JESD204B/C Transport Peripheral) <resources/fpga/peripherals/jesd204/jesd204_tpl_dac>`
+   * - IP name
+     - Source code link
+     - Documentation link
+   * - AXI_DMAC
+     - :git-hdl:`library/axi_dmac <master:library/axi_dmac>`
+     - :ref:`here <axi_dmac>`
+   * - AXI_SYSID
+     - :git-hdl:`library/axi_sysid <master:library/axi_sysid>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/axi_sysid>`
+   * - SYSID_ROM
+     - :git-hdl:`library/sysid_rom <master:library/sysid_rom>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/axi_sysid>`
+   * - UTIL_CPACK2
+     - :git-hdl:`library/util_pack/util_cpack2 <master:library/util_pack/util_cpack2>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/util_cpack>`
+   * - UTIL_UPACK2
+     - :git-hdl:`library/util_pack/util_upack2 <master:library/util_pack/util_upack2>`
+     - :dokuwiki:`[Wiki] <resources/fpga/docs/util_upack>`
+   * - UTIL_ADXCVR for AMD
+     -  :git-hdl:`library/xilinx/util_adxcvr <master:library/xilinx/util_adxcvr>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/docs/util_xcvr>`
+   * - AXI_ADXCVR for Intel
+     -  :git-hdl:`library/intel/axi_adxcvr <master:library/intel/axi_adxcvr>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/docs/axi_adxcvr>`
+   * - AXI_ADXCVR for AMD
+     -  :git-hdl:`library/intel/axi_adxcvr <master:library/xilinx/axi_adxcvr>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/docs/axi_adxcvr>`
+   * - AXI_JESD204_RX
+     -  :git-hdl:`library/jesd204/axi_jesd204_rx <master:library/jesd204/axi_jesd204_rx>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/peripherals/jesd204/axi_jesd204_rx>`
+   * - AXI_JESD204_TX
+     -  :git-hdl:`library/jesd204/axi_jesd204_tx <master:library/jesd204/axi_jesd204_tx>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/peripherals/jesd204/axi_jesd204_tx>`
+   * - JESD204_TPL_ADC
+     -  :git-hdl:`library/jesd204/jesd204_tpl_adc <master:library/jesd204/jesd204_tpl_adc>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/peripherals/jesd204/jesd204_tpl_adc>`
+   * - JESD204_TPL_DAC
+     -  :git-hdl:`library/jesd204/jesd204_tpl_dac <master:library/jesd204/jesd204_tpl_dac>`
+     -  :dokuwiki:`[Wiki] <resources/fpga/peripherals/jesd204/jesd204_tpl_dac>`
+
 -  :dokuwiki:`[Wiki] Generic JESD204B block designs <resources/fpga/docs/hdl/generic_jesd_bds>`
 -  :dokuwiki:`[Wiki] JESD204B High-Speed Serial Interface Support <resources/fpga/peripherals/jesd204>`
 
@@ -688,16 +767,6 @@ Software related
 
    -  `AD9081 class documentation <https://analogdevicesinc.github.io/pyadi-iio/devices/adi.ad9081.html>`__
    -  `PyADI-IIO documentation <https://analogdevicesinc.github.io/pyadi-iio/>`__
-
-Systems related
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
--  :dokuwiki:`[Wiki] AD9081 Quick Start Guides <resources/eval/user-guides/ad9081_fmca_ebz/quickstart>`
--  :dokuwiki:`[Wiki] EVAL-AD9081 Arria10 SoC Development Kit Quick Start Guide <resources/eval/user-guides/ad9081/quickstart/a10soc>`
--  :dokuwiki:`[Wiki] AD9081/AD9082 Virtex UltraScale+ VCU118 Quick Start Guide <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/microblaze>`
--  :dokuwiki:`[Wiki] AD9081/AD9082 Versal ACAP VCK190/VMK180 Quick Start Guide <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/versal>`
--  :dokuwiki:`[Wiki] AD9081 Zynq-7000 SoC ZC706 Quick Start Guide <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/zynq>`
--  :dokuwiki:`[Wiki] AD9081/AD9082 Zynq UltraScale+ MPSoC ZCU102 Quick Start Guide <resources/eval/user-guides/ad9081_fmca_ebz/quickstart/zynqmp>`
 
 .. include:: ../common/more_information.rst
 
