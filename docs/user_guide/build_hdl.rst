@@ -255,8 +255,13 @@ HDL project from the repository:
 Setup the HDL repository
 -------------------------------------------------------------------------------
 
-If you completed the above steps, next thing to do is clone the
-repository. This is the best method to get the sources. Here, I am
+These designs are built upon ADI's generic HDL reference designs framework.
+ADI does not distribute the bit/elf files of these projects so they
+must be built from the sources available :git-hdl:`here <master:/>`. To get
+the source you must
+`clone <https://git-scm.com/book/en/v2/Git-Basics-Getting-a-Git-Repository>`__
+the HDL repository.
+This is the best method to get the sources. Here, we are
 cloning the repository inside a directory called **adi**. Please refer
 to the :ref:`git_repository` section for more details.
 
@@ -460,6 +465,36 @@ targets: it could be a library component or the project itself. There is
 nothing you can gather from the ``make`` output (other than which one
 failed). The actual failure is in a log file, so let's see how to
 analyze the build log files and results.
+
+On projects which support this, some ``make`` parameters can be added, to
+configure the project (to see if your project has such things, enter in the
+**system_project.tcl** file and check there).
+
+The result of the build, if parameters were used, will be in a folder named
+by the configuration used:
+
+**Example 1**
+
+running this command
+
+``make RX_LANE_RATE=2.5 TX_LANE_RATE=2.5 RX_JESD_L=8 RX_JESD_M=4 RX_JESD_S=1 RX_JESD_NP=16 TX_JESD_L=8 TX_JESD_M=4 TX_JESD_S=1 TX_JESD_NP=16``
+
+will create a folder named
+
+``RXRATE2_5_TXRATE2_5_RXL8_RXM4_RXS1_RXNP16_TXL8_TXM4_TXS1_TXNP16``
+because of truncation of some keywords so the name will not exceed the limits
+of the Operating System (``JESD``, ``LANE``, etc. are removed) of 260
+characters.
+
+**Example 2**
+
+running this command
+
+``make LVDS_CMOS_N=1``
+
+will create a folder named
+
+``LVDSCMOSN1``
 
 Enabling Out-of-Context synthesis
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
