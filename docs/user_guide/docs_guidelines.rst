@@ -247,6 +247,10 @@ The ez role creates links to the Analog Devices Inc. EngineerZone support websit
 The role syntax is :code:`:ez:\`community\``, for example, :code:`:ez:\`fpga\``
 gets rendered as :ez:`fpga`.
 
+For Linux Software Drivers, it is :code:`:ez:\`linux-software-drivers\``.
+
+For Microcontroller no-OS Drivers it is :code:`:ez:\`microcontroller-no-os-drivers\``.
+
 Vendor role
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
