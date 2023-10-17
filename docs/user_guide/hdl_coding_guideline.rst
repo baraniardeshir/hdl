@@ -655,7 +655,7 @@ the current year.
 Annex 1 Verilog file format
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. code-block::
+.. code-block:: verilog
    :linenos:
 
    // ***************************************************************************
@@ -725,10 +725,10 @@ Annex 1 Verilog file format
      // this block updates the internal counter
      always @(posedge core_32m_clk or negedge reset_n) begin
        if (!reset_n) begin
-         count <= 4�b0000;
+         count <= 4'b0000;
        end else begin
          // update counter
-         count <= count + 4�b0001;
+         count <= count + 4'b0001;
        end
      end
 
@@ -853,20 +853,16 @@ Annex 2 VHDL file format
 4. References
 -------------------------------------------------------------------------------
 
-`1 <http://www.xilinx.com/support/documentation/white_papers/wp231.pdf>`__
-Philippe Garrault, Brian Philofsky, "HDL Coding Practices to Accelerate
-Design Performance", Xilinx, 2006, Online document available at:
-http://www.xilinx.com/support/documentation/white_papers/wp231.pdf
+`[1] Philippe Garrault, Brian Philofsky, "HDL Coding Practices to Accelerate
+Design Performance", Xilinx, 2006
+<http://www.xilinx.com/support/documentation/white_papers/wp231.pdf>`__
 
-| `2 <http://www.asic-world.com/code/verilog_tutorial/peter_chambers_10_commandments.pdf>`__
-  Peter Chambers, "The Ten Commandments of Excellent Design", VLSI
-  Technology, 1997, Online document available at:
-| http://www.asic-world.com/code/verilog_tutorial/peter_chambers_10_commandments.pdf
+`[2] Peter Chambers, "The Ten Commandments of Excellent Design", VLSI
+Technology, 1997
+<http://www.asic-world.com/code/verilog_tutorial/peter_chambers_10_commandments.pdf>`__
 
-[ 3] "Verilog Coding Techniques, v3.2", Freescale Semiconductor, 2005,
-Online document available at:
-http://courses.cit.cornell.edu/ece576/Verilog/FreescaleVerilog.pdf
+`[3] "Verilog Coding Techniques, v3.2", Freescale Semiconductor, 2005
+<http://courses.cit.cornell.edu/ece576/Verilog/FreescaleVerilog.pdf>`__
 
-[ 4] Jane Smith, "Verilog Coding Guidelines, Rev. B", Cisco Systems,
-2000, Online document available at:
-http://www.engr.sjsu.edu/cpham/VERILOG/VerilogCodingStyle.pdf
+`[4] Jane Smith, "Verilog Coding Guidelines, Rev. B", Cisco Systems 2000
+<http://www.engr.sjsu.edu/cpham/VERILOG/VerilogCodingStyle.pdf>`__
