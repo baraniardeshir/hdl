@@ -50,4 +50,3 @@ html_static_path = ['sources']
 source_suffix = '.rst'
 html_css_files = ["custom.css"]
 html_favicon = "sources/icon.svg"
-pygments_style = 'sphinx'
