@@ -210,27 +210,26 @@ Always check which are used (in
 Interrupts table
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-============= ========== =========== ============ =============
-HDL interrupt Linux Zynq Actual Zynq Linux ZynqMP Actual ZynqMP
-============= ========== =========== ============ =============
-15            59         91          111          143
-14            58         90          110          142
-13            57         89          109          141
-12            56         88          108          140
-11            55         87          107          139
-10            54         86          106          138
-9             53         85          105          137
-8             52         84          104          136
-7             36         68          96           128
-6             35         67          95           127
-5             34         66          94           126
-4             33         65          93           125
-3             32         64          92           124
-2             31         63          91           123
-1             30         62          90           122
-0             29         61          89           121
-============= ========== =========== ============ =============
-
+=== ========== =========== ============ ============= ====== =============== ================
+HDL Linux Zynq Actual Zynq Linux ZynqMP Actual ZynqMP S10SoC Linux Cyclone V Actual Cyclone V
+=== ========== =========== ============ ============= ====== =============== ================
+15  59         91          111          143           32     55              87
+14  58         90          110          142           31     54              86
+13  57         89          109          141           30     53              85
+12  56         88          108          140           29     52              84
+11  55         87          107          139           28     51              83
+10  54         86          106          138           27     50              82
+9   53         85          105          137           26     49              81
+8   52         84          104          136           25     48              80
+7   36         68          96           128           24     47              79
+6   35         67          95           127           23     46              78
+5   34         66          94           126           22     45              77
+4   33         65          93           125           21     44              76
+3   32         64          92           124           20     43              75
+2   31         63          91           123           19     42              74
+1   30         62          90           122           18     41              73
+0   29         61          89           121           17     40              72
+=== ========== =========== ============ ============= ====== =============== ================
 
 Board design and capabilities
 -------------------------------------------------------------------------------
@@ -239,150 +238,119 @@ AMD platforms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
-   :widths: 25 25 25 25
+   :widths: 16 16 18 18 16 16
    :header-rows: 1
 
    * - Board name
      - Boots from
      - FMC connector 1
      - FMC connector 2
+     - VADJ FMC connector
+     - Family
    * - `AC701 <https://www.xilinx.com/products/boards-and-kits/ek-a7-ac701-g.html>`__
      - JTAG
      - HPC (2 GTP @ 6.6 Gbps)
      - ---
+     - 3.3V/**\*2.5V**/1.8V
+     - Artix-7
    * - `Cora Z7-07S <https://digilent.com/reference/programmable-logic/cora-z7/start>`__
      - SD card
      - ---
      - ---
+     - ---
+     - Zynq-7000
    * - `KC705 <https://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html>`__
      - JTAG
      - HPC (4 GTX @ 10.3125 Gbps)
      - LPC (1 GTX @ 10.3125 Gbps)
+     - 3.3V/**\*2.5V**/1.8V
+     - Kintex-7
    * - `KCU105 <https://www.xilinx.com/products/boards-and-kits/kcu105.html>`__
      - JTAG
      - HPC (8 GTH @ 16.3 Gbps)
      - LPC (1 GTH @ 16.3 Gbps)
+     - **\*1.8V**/1.5V/1.2V
+     - Kintex UltraScale
    * - `Microzed <http://zedboard.org/product/microzed>`__
      - JTAG
      - ---
      - ---
+     - ---
+     - Zynq-7000
    * - `VC707 <https://www.xilinx.com/products/boards-and-kits/ek-v7-vc707-g.html>`__
      - JTAG
      - HPC (8 GTX @ 12.5 Gbps)
      - HPC (8 GTX @ 12.5 Gbps)
+     - **\*1.8V**/1.5V/1.2V
+     - Virtex-7
    * - `VC709 <https://www.xilinx.com/products/boards-and-kits/dk-v7-vc709-g.html>`__
      - JTAG
      - HPC (10 GTH @ 13.1 Gbps)
      - ---
+     - **\*1.8V**
+     - Virtex-7
    * - `VCK190 <https://www.xilinx.com/products/boards-and-kits/vck190.html>`__
      - SD card
      - FMC+ (12 GTY @ 28.21 Gbps)
      - FMC+ (12 GTY @ 28.21 Gbps)
+     - **\*1.5V**/1.2V
+     - Versal AI Core
    * - `VCU118 <https://www.xilinx.com/products/boards-and-kits/vcu118.html>`__
      - JTAG
      - FMC+ (24 GTY @ 28.21 Gbps)
      - LPC
+     - **\*1.8V**/1.5V/1.2V
+     - Virtex UltraScale+
    * - `VCU128 <https://www.xilinx.com/products/boards-and-kits/vcu128.html>`__
      - JTAG
      - FMC+ (24 GTY @ 28.21 Gbps)
      - ---
+     - **\*1.8V**/1.5V/1.2V
+     - Virtex UltraScale+ HBM
    * - `VMK180 <https://www.xilinx.com/products/boards-and-kits/vmk180.html>`__
      - SD card
      - FMC+ (12 GTY @ 28.21 Gbps)
      - FMC+ (12 GTY @ 28.21 Gbps)
+     - **\*1.5V**/1.2V
+     - Versal Prime Series
    * - `ZC702 <https://www.xilinx.com/products/boards-and-kits/ek-z7-zc702-g.html>`__
      - SD card
      - LPC
      - LPC
+     - 3.3V/**\*2.5V**/1.8V
+     - Zynq-7000
    * - `ZC706 <https://www.xilinx.com/products/boards-and-kits/ek-z7-zc706-g.html>`__
      - SD card
      - HPC (8 GTX @ 10.3125 Gbps)
      - LPC (1 GTX @ 10.3125 Gbps)
+     - 3.3V/**\*2.5V**/1.8V
+     - Zynq-7000
    * - `ZCU102 <https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-es2-g.html>`__
      - SD card
      - HPC (8 GTH @ 16.3 Gbps)
      - HPC (8 GTH @ 16.3 Gbps)
+     - **\*1.8V**/1.5V/1.2V
+     - Zynq UltraScale+ MP SoC
    * - `ZedBoard <https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/zedboard/>`__
      - SD card
      - LPC
      - ---
-
-VADJ values
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-
-.. list-table::
-   :widths: 25 25 25 25
-   :header-rows: 1
-
-   * - Board name
-     - FMC connector 1
-     - FMC connector 2
-     - Family
-   * - `AC701 <https://www.xilinx.com/products/boards-and-kits/ek-a7-ac701-g.html>`__
-     - 3.3V/**\*2.5V**/1.8V
-     - ---
-     - Artix-7
-   * - `Cora Z7-07S <https://digilent.com/reference/programmable-logic/cora-z7/start>`__
-     - ---
-     - ---
-     - Zynq-7000
-   * - `KC705 <https://www.xilinx.com/products/boards-and-kits/ek-k7-kc705-g.html>`__
-     - 3.3V/**\*2.5V**/1.8V
-     - 3.3V/**\*2.5V**/1.8V
-     - Kintex-7
-   * - `KCU105 <https://www.xilinx.com/products/boards-and-kits/kcu105.html>`__
-     - **\*1.8V**/1.5V/1.2V
-     - **\*1.8V**/1.5V/1.2V
-     - Kintex UltraScale
-   * - `Microzed <http://zedboard.org/product/microzed>`__
-     - ---
-     - ---
-     - Zynq-7000
-   * - `VC707 <https://www.xilinx.com/products/boards-and-kits/ek-v7-vc707-g.html>`__
-     - **\*1.8V**/1.5V/1.2V
-     - **\*1.8V**/1.5V/1.2V
-     - Virtex-7
-   * - `VC709 <https://www.xilinx.com/products/boards-and-kits/dk-v7-vc709-g.html>`__
-     - **\*1.8V**
-     - ---
-     - Virtex-7
-   * - `VCK190 <https://www.xilinx.com/products/boards-and-kits/vck190.html>`__
-     - **\*1.5V**/1.2V
-     - **\*1.5V**/1.2V
-     - Versal AI Core
-   * - `VCU118 <https://www.xilinx.com/products/boards-and-kits/vcu118.html>`__
-     - **\*1.8V**/1.5V/1.2V
-     - **\*1.8V**/1.5V/1.2V
-     - Virtex UltraScale+
-   * - `VCU128 <https://www.xilinx.com/products/boards-and-kits/vcu128.html>`__
-     - **\*1.8V**/1.5V/1.2V
-     - ---
-     - Virtex UltraScale+ HBM
-   * - `VMK180 <https://www.xilinx.com/products/boards-and-kits/vmk180.html>`__
-     - **\*1.5V**/1.2V
-     - **\*1.5V**/1.2V
-     - Versal Prime Series
-   * - `ZC702 <https://www.xilinx.com/products/boards-and-kits/ek-z7-zc702-g.html>`__
-     - 3.3V/**\*2.5V**/1.8V
-     - 3.3V/**\*2.5V**/1.8V
-     - Zynq-7000
-   * - `ZC706 <https://www.xilinx.com/products/boards-and-kits/ek-z7-zc706-g.html>`__
-     - 3.3V/**\*2.5V**/1.8V
-     - 3.3V/**\*2.5V**/1.8V
-     - Zynq-7000
-   * - `ZCU102 <https://www.xilinx.com/products/boards-and-kits/ek-u1-zcu102-es2-g.html>`__
-     - **\*1.8V**/1.5V/1.2V
-     - **\*1.8V**/1.5V/1.2V
-     - Zynq UltraScale+ MP SoC
-   * - `ZedBoard <https://www.avnet.com/wps/portal/us/products/avnet-boards/avnet-board-families/zedboard/>`__
      - 3.3V/2.5V/**\*1.8V**
-     - ---
      - Zynq-7000
 
-(**\* bold**) = default VADJ
-FMC1 & FMC2 columns -> depending on the power supply of the device
-connected to the FMC, the custom VADJ will have the value supported by
-both the carrier and the device(s)
+.. note::
+
+   The column with the VADJ value applies to the FMC connectors when they
+   exist. If both of them exist, then it is the same for both of them.
+   If there is only one FMC connector, then it applies to only one.
+   If both are missing, then a --- (dash) will appear.
+
+.. note::
+
+   **(\* bold**) = default VADJ
+   FMC1 & FMC2 columns -> depending on the power supply of the device
+   connected to the FMC, the custom VADJ will have the value supported by
+   both the carrier and the device(s)
 
 Intel platforms
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
