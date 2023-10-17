@@ -37,7 +37,7 @@ HDL project from the repository:
       :git-hdl:`master:scripts/adi_env.tcl`
    -  For ``hdl_2019_r2`` and older:
       :git-hdl:`hdl/projects/scripts/adi_project_xilinx.tcl <master:projects/scripts/adi_project_xilinx.tcl>` for Vivado, and
-      :git-hdl:`hdl/projects/scripts/adi_project_intel.tcl <projects/scripts/adi_project_intel.tcl>` for Quartus.
+      :git-hdl:`hdl/projects/scripts/adi_project_intel.tcl <master:projects/scripts/adi_project_intel.tcl>` for Quartus.
 
 #. Download the tools from the following links:
 
@@ -55,7 +55,7 @@ HDL project from the repository:
    `GNU Make <https://www.gnu.org/software/make/>`__ to build the
    projects. Depending on what OS you're using, you have these options:
 
-.. dropdown::  For Windows environment with Cygwin
+.. collapsible::  For Windows environment with Cygwin
 
    Because GNU Make is not supported on Windows, you need to install
    `Cygwin <https://www.cygwin.com/>`__, which is a UNIX-like environment
@@ -83,164 +83,7 @@ HDL project from the repository:
    Replace the **path_to** string with your path to the installation folder
    and the **tools version** with the proper one!
 
-.. dropdown:: For Windows environment with WSL
-
-   You can also install
-   `WSL <https://learn.microsoft.com/en-us/windows/wsl/install/>`__
-   (Windows Subsystem for Linux) which is both a UNIX-like environment and
-   a command-line interface for Microsoft Windows.
-
-   To be able to access the GUI, WSL2 is recommended. This can be done if you
-   open PowerShell or Windows Command Prompt in Administrator mode.
-   In the above link you can find the installation guide for WSL on Windows.
-
-   .. note::
-
-      When installing WSL, the Ubuntu distribution will be installed by
-      default
-
-   If not, after installing WSL, write in the terminal:
-
-   .. code-block::
-
-      >wsl --update
-      >wsl --install -d ubuntu
-
-   If you want to check the version for wsl, you can use the Windows
-   Command Prompt command:
-
-   .. code-block::
-
-      >wsl -l -v
-        NAME      STATE           VERSION
-      * Ubuntu    Running         2
-
-   If you want to check the version for WSL and Ubuntu, you can use the
-   following commands in Ubuntu:
-
-   .. code-block::
-
-      :~$ uname -r
-      5.15.90.1-microsoft-standard-WSL2
-
-      :~$ lsb_release -a
-      No LSB modules are available.
-      Distributor ID: Ubuntu
-      Description:    Ubuntu 22.04.2 LTS
-      Release:        22.04
-      Codename:       jammy
-
-   If you want to become root, you can use the following command:
-
-   .. code-block:: bash
-
-      :~$ sudo -i
-      [sudo] password for username:
-      root@pc_name:~# exit
-      logout
-
-   Here the paths will look like this if the tools will be installed in the
-   Windows file system:
-
-   .. code-block:: bash
-      :linenos:
-
-      export PATH=$PATH:/mnt/path_to/Xilinx/Vivado/202x.x/bin
-      export PATH=$PATH:/mnt/path_to/Xilinx/Vivado_HLS/202x.x/bin
-      export PATH=$PATH:/mnt/path_to/Xilinx/Vitis/202x.x/bin
-      export PATH=$PATH:/mnt/path_to/Xilinx/Vitis/202x.x/gnu/microblaze/nt/bin
-      export PATH=$PATH:/mnt/path_to/Xilinx/Vitis/202x.x/gnu/arm/nt/bin
-      export PATH=$PATH:/mnt/path_to/Xilinx/Vitis/202x.x/gnu/microblaze/linux_toolchain/nt64_be/bin
-      export PATH=$PATH:/mnt/path_to/Xilinx/Vitis/202x.x/gnu/microblaze/linux_toolchain/nt64_le/bin
-      export PATH=$PATH:/mnt/path_to/Xilinx/Vitis/202x.x/gnu/aarch32/nt/gcc-arm-none-eabi/bin
-      export PATH=$PATH:/mnt/path_to/intelFPGA_pro/2x.x/quartus/bin
-
-   Replace the **path_to** string with your path to the installation folder
-   and the **tools version** with the proper one!
-
-   .. caution::
-
-      Before building any project, it is necessary to install
-      the Linux version for Vivado (see ``How to install Vivado on WSL
-      section``)
-      and Quartus because on the Ubuntu distribution on
-      `WSL <https://learn.microsoft.com/en-us/windows/wsl/install/>`__ you
-      cannot run projects on the Windows version of them. When you have to
-      choose the installation path, choose the location where WSL is installed
-      (:code:`\\\\wsl.localhost\\Ubuntu\\opt`). Also, to get the best performance, you
-      must clone your hdl repository in the WSL file system. For example:
-      :code:`\\\\wsl.localhost\\Ubuntu\\home\\username\\hdl`
-
-   For more information you can consult the following link:
-   `WSLStorage <https://learn.microsoft.com/en-us/windows/wsl/filesystems#file-storage-and-performance-across-file-systems>`__.
-
-   Then the paths will look like this:
-
-   .. code-block:: bash
-      :linenos:
-
-      export PATH=$PATH:/opt/path_to/Xilinx/Vivado/202x.x/bin
-      export PATH=$PATH:/opt/path_to/Xilinx/Vivado_HLS/202x.x/bin
-      export PATH=$PATH:/opt/path_to/Xilinx/Vitis/202x.x/bin
-      export PATH=$PATH:/opt/path_to/Xilinx/Vitis/202x.x/gnu/microblaze/nt/bin
-      export PATH=$PATH:/opt/path_to/Xilinx/Vitis/202x.x/gnu/arm/nt/bin
-      export PATH=$PATH:/opt/path_to/Xilinx/Vitis/202x.x/gnu/microblaze/linux_toolchain/nt64_be/bin
-      export PATH=$PATH:/opt/path_to/Xilinx/Vitis/202x.x/gnu/microblaze/linux_toolchain/nt64_le/bin
-      export PATH=$PATH:/opt/path_to/Xilinx/Vitis/202x.x/gnu/aarch32/nt/gcc-arm-none-eabi/bin
-      export PATH=$PATH:/opt/path_to/intelFPGA_pro/2x.x/quartus/bin
-
-   Replace the **path_to** string with your path to the installation folder
-   and the **tools version** with the proper one!
-
-.. dropdown:: For Linux environment
-
-   Because, in general, both **git** and **make** are native tools in Linux,
-   you do not need to do any special setup. If you don't have these, install
-   them.
-
-   Further more, you need to add your FPGA Design Tools installation
-   directory to your PATH environment variable. For AMD tools, you can
-   run the **settings64.sh** script, which is located in your installation
-   directory. Or you can add the required paths to your **~/.bashrc** file.
-   For example:
-
-   .. code-block:: bash
-      :linenos:
-
-      export PATH=$PATH:"/opt/Xilinx/Vivado/202x.x/bin"
-      export PATH=$PATH:"/opt/Xilinx/Vitis/202x.x/bin"
-      export PATH=$PATH:"/opt/intelFPGA_pro/2x.x/quartus/bin"
-
-   Replace the **path_to** string with your path to the installation folder
-   and the **tools version** with the proper one!
-
-.. dropdown:: How to install Vivado on WSL
-
-   Installing the linux kit for Vivado can be done from Ubuntu:
-
-   #. Go to the path where the installation kit for Vivado is located.
-   #. Make it executable
-
-   .. code-block:: bash
-
-      :~$ chmod +x Xilinx_Vivado_installation_kit.bin
-      :~$ ./Xilinx_Vivado_installation_kit.bin
-
-
-   If you unzip the installation kit in Ubuntu, go to the Xilinx_Vivado
-   installation kit and run .xsetup file. Make sure you have the following
-   libraries installed:
-
-   .. code-block:: bash
-
-      :~$ sudo apt-get install locales && sudo localedef -i en_US -f UTF-8 en_US.UTF-8
-      :~$ sudo ./installLibs.sh
-      :~$ sudo apt-get install libxrender1 libxtst6 libxi6
-
-   You must create a **.bashrc** file with the paths corresponding to the
-   version of Vivado installed.
-
-.. dropdown::  How to verify your environment setup
+.. collapsible::  How to verify your environment setup
 
    Run any of the following commands. These commands will return a valid path
    if your setup is good.
@@ -369,7 +212,7 @@ And finally, if the project was built is successfully, the **.sopcinfo** and
 You may now use this 'sopcinfo' file as the input to your no-OS and/or
 Linux build. The 'sof' file is used to program the device.
 
-.. dropdown:: Building an Intel project in WSL - known issues
+.. collapsible:: Building an Intel project in WSL - known issues
 
    For a10Soc and s10Soc projects it's very possible to face the following
    error when you try to build the project:
@@ -416,7 +259,7 @@ Linux build. The 'sof' file is used to program the device.
 
       :~$ sudo swapoff -v /swapfile
 
-.. dropdown:: Building manually in Quartus GUI
+.. collapsible:: Building manually in Quartus GUI
 
    .. warning::
 
@@ -597,7 +440,7 @@ build.
 Starting with Vivado 2019.3, the output file extension was changed from
 .hdf to .xsa.
 
-.. dropdown:: Building an AMD project in WSL - known issues
+.. collapsible:: Building an AMD project in WSL - known issues
 
    For some projects it is very possible to face the following error when you make a
    build:
@@ -641,7 +484,7 @@ Starting with Vivado 2019.3, the output file extension was changed from
 
       :~$ sudo swapoff -v /swapfile
 
-.. dropdown:: Building manually in Vivado GUI
+.. collapsible:: Building manually in Vivado GUI
 
    .. warning::
 
@@ -898,9 +741,6 @@ If you are an Intel user, the "Nios II Command Shell" does support make.
 If you are an AMD user, use the 'gnuwin' installed as part of the SDK,
 usually at ``C:\Xilinx\Vitis\202x.x\gnuwin\bin``.
 
-Xilinx auto Tcl build ---- REMOVED
--------------------------------------------------------------------------------
-
 Preparing the SD card
 -------------------------------------------------------------------------------
 
@@ -934,7 +774,7 @@ the root directory of your project.
 More info on how to generate this file you will find in the
 `References`_ section or in the ReadMe.txt file from ``boot`` partition.
 
-.. dropdown:: How to build the boot image BOOT.BIN in WSL
+.. collapsible:: How to build the boot image BOOT.BIN in WSL
 
    After obtaining .xsa file, you must be sure that you have done source for
    Vivado and Vitis. To create boot.bin is recommended to run
