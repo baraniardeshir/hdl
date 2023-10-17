@@ -119,7 +119,6 @@ Renders as
        string = "Hello world"
        print(string)
 
-
 Images
 --------------------------------------------------------------------------------
 
@@ -178,7 +177,6 @@ consider requesting or creating one.
 
    Link-like roles use the :code:`:role:\`text <link>\`` synthax, like external
    links, but without the undescore in the end.
-
 
 Color role
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -429,3 +427,23 @@ Global options for HDL directives
 
 Use the `hide_collapsible_content` to set the default state of the collapsibles,
 if you set to False, they be expanded by default.
+
+Common sections
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The **More information** and **Support** sections that are present in
+the HDL project documentation, are actually separate pages inserted as links.
+They're located at hdl/projects/common/more_information.rst and /support.rst,
+and cannot be referenced here because they don't have an ID at the beginning
+of the page, so not to have warnings when the documentation is rendered that
+they're not included in any toctree.
+
+They are inserted like this:
+
+.. code-block::
+
+   .. include:: ../common/more_information.rst
+
+   .. include:: ../common/support.rst
+
+and will be rendered as sections of the page.
