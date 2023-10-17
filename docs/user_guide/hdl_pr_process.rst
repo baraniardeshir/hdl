@@ -52,15 +52,16 @@ For first-timers
 -  Add the FPGA group as reviewers (*analogdevicesinc/fpga* group)
 
 If you're the owner of the PR
------------------------------
+-------------------------------------------------------------------------------
 
 Before opening a Pull Request:
 
-#. **Rebase branch** onto latest master
+#. **Rebase branch** onto latest master branch
 #. Make sure the **new register map** is updated, if that's the case:
 
    -  Update the corresponding **docs/regmap text files**
-   -  Update the `Register Map Wiki page
+   -  (To be done until the documentation is fully ported on GitHubIO)
+      Update the `Register Map Wiki page
       <https://wiki.analog.com/resources/fpga/docs/hdl/regmap>`__ with
       the *adi_regmap.wiki* code generated
    -  The IPs typically should follow
@@ -71,9 +72,10 @@ Before opening a Pull Request:
    If there are changes in the I/O ports, update your instances accordingly
 #. **Regenerate the Makefiles** that concern the projects you're
    editing/adding, to have them up-to-date
-#. Run :git-hdl:`<master:.github/scripts/check_guideline.py>` script on your
-   branch
-#. Run **Verilator** 7. **Visually inspect the code**
+#. Run :git-hdl:`check_guideline.py <master:.github/scripts/check_guideline.py>`
+   script on your branch
+#. Run `Verilator <https://www.veripool.org/verilator/>`__
+#. **Visually inspect the code**
 #. Code must build OK on **at least one project**. **Warnings** are reviewed.
    **Critical Warnings** are not accepted
 #. Test code in hardware on **at least one setup**
@@ -87,6 +89,8 @@ When opening the Pull Request:
 #. In the description of the Pull Request, **identify all links for Wiki**
    where changes need to be reviewed, so that the Wiki approval and the HDL
    PR merge happen at the same time
+#. Mention **how your changes impact the software**, and **how the software should
+   behave** in this case. Then tag someone from the software team.
 #. Add some **labels** to be easier for others to review your changes
 #. Check **GitHub actions**
 #. If reviewers requested changes or you found mistakes, then:
@@ -112,26 +116,26 @@ When opening the Pull Request:
       name (in the PR > Files changed tab)
 
 If you're a reviewer of a PR
-----------------------------
+-------------------------------------------------------------------------------
 
-1.  **Visually inspect the code** and **mark the viewed ones** by
-    ticking the box next to the name. In case the owner makes some other
-    changes to the viewed files, you will see with **Changes since last
-    view** next to the name (in the PR > Files changed tab)
-2.  If the design is new, **check the schematic and the pinout**
-3.  Check **README** links
-4.  **Build at least one of the affected projects** and **check
-    warnings**
-5.  Make sure the **new register map** is updated, if that's the case.
-    The IPs typically should follow `Semantic Versioning
-    2.0.0 <https://semver.org/>`__
-6.  Check if in the meantime there were some **changes to the common
-    IPs** that were used in the project from this PR (e.g.,
-    *up_adc_common*, *up_adc_channel*, *up_delay_cntrl*, etc.)
-7.  See if Makefiles are up-to-date by **regenerating** them (the ones
-    that concern the edited projects)
-8.  Run
-    `check_guideline.py <https://github.com/analogdevicesinc/hdl/blob/master/.github/scripts/check_guideline.py>`__
-9.  Run **Verilator**
-10. Review the **wiki changes**
-11. Check the **GitHub actions** if they fail
+#. **Visually inspect the code** and **mark the viewed ones** by
+   ticking the box next to the name. In case the owner makes some other
+   changes to the viewed files, you will see with **Changes since last
+   view** next to the name (in the PR > Files changed tab)
+#. If the design is new, **check the schematic and the pinout**
+#. Check **README** links
+#. **Build at least one of the affected projects** and **check
+   warnings**
+#. Make sure the **new register map** is updated, if that's the case.
+   The IPs typically should follow `Semantic Versioning
+   2.0.0 <https://semver.org/>`__
+#. Check if in the meantime there were some **changes to the common
+   IPs** that were used in the project from this PR (e.g.,
+   *up_adc_common*, *up_adc_channel*, *up_delay_cntrl*, etc.)
+#. See if Makefiles are up-to-date by **regenerating** them (the ones
+   that concern the edited projects)
+#. Run
+   :git-hdl:`check_guideline.py <master:.github/scripts/check_guideline.py>`
+#. Run `Verilator <https://www.veripool.org/verilator/>`__
+#. Review the **wiki changes**
+#. Check the **GitHub actions** if they fail
