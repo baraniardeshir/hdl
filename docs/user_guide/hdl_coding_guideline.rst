@@ -34,8 +34,7 @@ document.
 A. Layout
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-A1
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A1**
 
 Spaces **must** be used instead of tabs.
 
@@ -43,16 +42,12 @@ This allows the code to be properly visualized by any editor. **Do not**
 leave spaces at the end of a line. The following editor settings **must**
 be used: *Tab Size*: 2, *Indent Size*: 2.
 
-A2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A2**
 
 One white space **must** be inserted around operators, such as
 =, ==, &&, \|\|, &, \|, ^, etc.
 
 .. _example-a2:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Incorrect:
 
@@ -66,15 +61,11 @@ Correct:
 
    if ((my_signal == 1'b0) && (my_bus[3:0] == 4'd5))
 
-A3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A3**
 
 The *always* block *should* have a space before \*\*@\*\* symbol.
 
 .. _example-a3:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Incorrect:
 
@@ -92,24 +83,19 @@ Correct:
      ...
    end
 
-A4
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A4**
 
 The Verilog ``begin``/``end`` block **must** always be used,
 even if there is only one statement. This makes adding lines of code
 much easier and with fewer errors.
 
-A5
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A5**
 
 Indentation levels **must** be used to show code nesting. Blank
 lines may be used as desired to improve code readability, but *not* in
 all cases.
 
 .. _example-a5:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Incorrect:
 
@@ -144,8 +130,7 @@ Correct:
      statement5;
    end
 
-A6
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A6**
 
 In a ``case`` definition, indentation levels **must** be used to
 offset the statements that are encapsulated, but the use of blank lines
@@ -153,9 +138,6 @@ can be used or omitted to best show the statement groupings (if really
 necessary). ``end`` should be indented as in the correct example.
 
 .. _example-a6:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Incorrect:
 
@@ -199,17 +181,13 @@ Correct:
        end
    endcase
 
-A7
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A7**
 
 Alignment **should** be used in declarations, assignments,
 multi-line statements, and end of line comments. The code **must** be
 written in a tabular format.
 
 .. _example-a7:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Incorrect:
 
@@ -233,8 +211,7 @@ Correct:
 
    wire [ 2:0]  my_select;          // description
 
-A8
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A8**
 
 Parentheses **must** be used around all boolean statements and
 in complex equations, in order to force the order of operations and
@@ -242,9 +219,6 @@ avoid confusion. Complex boolean expressions *should* be expressed as
 multi-line aligned statements.
 
 .. _example-a8:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Incorrect:
 
@@ -269,16 +243,12 @@ Correct:
      my_delayed_signal1 = !your_signal;
    end
 
-A9
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A9**
 
 A line **must** not contain more than one statement. **Do not**
 concatenate multiple statements on the same line.
 
 .. _example-a9:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Incorrect:
 
@@ -293,21 +263,16 @@ Correct:
    upper_en = (p5type && xadr1[0]);
    lower_en = (p5type && !xadr1[0]);
 
-A10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A10**
 
 In module instances:
 
-A10.1
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**A10.1**
 
 **All** parameters and ports, **must** be written on a
 separate line, even if there are few of them or their names are short.
 
 .. _example-a10.1:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 Incorrect:
 
@@ -325,8 +290,7 @@ Correct:
    ) i_my_module (
      .clk (clk));
 
-A10.2
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**A10.2**
 
 When instantiating a module, the label of the module instance
 **must** be on a separate line, with the closing parenthesis of the
@@ -335,9 +299,6 @@ ports list. The closing parenthesis of the ports list must be right next
 to the last parenthesis of the last port.
 
 .. _example-a10.2:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code-block::
    :linenos:
@@ -353,27 +314,21 @@ Example
      .en (en),
      .response_out (response_out));
 
-A10.3
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**A10.3**
 
 Commented parts of code **must** not be added to the master
 branch (i.e if, case, module instances, etc).
 
-A11
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A11**
 
 In module declarations:
 
-A11.1
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**A11.1**
 
 Verilog modules **must** use Verilog-2001 style parameter
 declarations. This increases legibility and consistency.
 
 .. _example-a11.1:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code-block::
    :linenos:
@@ -400,60 +355,51 @@ Example
      output        interf2_data_out
    );
 
-A11.2
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**A11.2**
 
 Comments are allowed inside a module declaration **only** for
 separating the interfaces by specifying the name and giving
 supplementary explanations.
 
-A11.3
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**A11.3**
 
 When declaring a module, the closing parenthesis of the
 parameters list **must** be on the same line with the last parameter and
 with the opening parenthesis of the ports list (as shown in the correct
 examples).
 
-A11.4
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+**A11.4**
 
 After ``endmodule`` there **must** be only one newline, and
 nothing else after.
 
-A12
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A12**
 
 Ports **must** be indicated individually; that is, one port per
 line must be declared, using the direction indication and data type with
 each port.
 
-A13
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A13**
 
 Signals and variables **must** be declared individually; that
 is, one signal/variable per line **must** be declared.
 
-A14
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A14**
 
 All ports and signals **must** be grouped by interface. Group
 ports declaration by direction starting with input, inout and output
 ports.
 
-A15
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A15**
 
 The clock and reset ports **must** be declared first.
 
-A16
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A16**
 
 Verilog wires and registers declarations **must** be grouped in
 separate sections. **Firstly** register types and then wire types.
 
-A17
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**A17**
 
 The source files *should* have the format shown in Annex 1 for
 Verilog code and Annex 2 for VHDL code.
@@ -461,27 +407,21 @@ Verilog code and Annex 2 for VHDL code.
 B. Naming Conventions
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-B1
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B1**
 
 All the names in the source code **must** be written in English.
 
-B2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B2**
 
 Names **must** start with a letter, be composed of alphanumeric
 characters or underscores **[A-Z, a-z, 0-9,\_]**.
 
-B3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B3**
 
 All modules, signal and register names **must** be lower case,
 delimited by underscores \_.
 
 .. _example-b3:
-
-Example
-'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
 
 .. code-block::
    :linenos:
@@ -494,8 +434,7 @@ Example
      output [15:0]   my_signal1
    );
 
-B4
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B4**
 
 A file **must** contain a single module. File name **must** be
 the same as the module name. For sub-modules the name **must** be
@@ -505,14 +444,12 @@ composed in the following way:
 
    <top_module_name>_<sub_module_description>.
 
-B5
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B5**
 
 All parameter names **must** be upper case with underscore
 delimiters.
 
-B6
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B6**
 
 Signals names *should* be composed in the following way:
 
@@ -545,8 +482,7 @@ specify its purpose. Generally this rule can lead to an unnecessary
 naming complexity and thus can be overlooked unless it is absolutely
 necessary.
 
-B7
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B7**
 
 Ports names *should* be composed in the following way:
 
@@ -567,8 +503,7 @@ whose names obviously indicate resets.
 ``*_n`` - Active low signal. Can also be used for negative side of
 differential signal.
 
-B8
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B8**
 
 Global text macros specified by the ``define`` directive
 **must** be preceded with the top-level module name, as in:
@@ -577,20 +512,17 @@ Global text macros specified by the ``define`` directive
 
    <top_level_module_name>_<text macro name>
 
-B9
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B9**
 
 Consistent usage in the spelling and naming style of nets and
 variables **must** be used throughout the design.
 
-B10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B10**
 
 Abbreviations used in a module **must** be documented and
 uncommon abbreviations *should* be avoided.
 
-B11
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**B11**
 
 Reset and clock names **must** remain the same across
 hierarchy.
@@ -598,8 +530,7 @@ hierarchy.
 C. Comments
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-C1
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**C1**
 
 Comments **must** be used to describe the functionality of the
 HDL code. Liberal use of comments is strongly encouraged. Adding obvious
@@ -607,41 +538,35 @@ comments is discouraged. Basically, extensive comments that proceed
 blocks of code, coupled with sparse back references, guide the reader
 through the code.
 
-C2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**C2**
 
 Each functional section of the code *should* be preceded by
 comments describing the code�s intent and function.
 
-C3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**C3**
 
 Unusual or non-obvious implementations **must** be explained and
 their limitations documented with a comment.
 
-C4
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**C4**
 
 Each port declaration *should* have a descriptive comment,
 **only** on the preceding line.
 
-C5
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**C5**
 
 Other declarations, such as regs, wires, local parameters,
 *should* have a descriptive comment. Either on the same line
 (discouraged), or on the preceding line. This rule is optional for
 auto-generated code.
 
-C6
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**C6**
 
 All synthesis-specific directives **must** be documented where
 used, identifying the reason they are used, the tool and the directive
 used.
 
-C7
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**C7**
 
 The comments inserted in the code **must** comply with the
 format shown in Annex 1 for Verilog code and Annex 2 for VHDL code.
@@ -649,48 +574,41 @@ format shown in Annex 1 for Verilog code and Annex 2 for VHDL code.
 D. General
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-D1
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D1**
 
 A file **must** contain a single module.
 
-D2
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D2**
 
 A file **must** contain either: digital-only Verilog code (files
 with .v extension); analog-only Verilog code (files with .va or .vams
 extension); or mixed-signal Verilog code (files with .vams extension).
 
-D3
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D3**
 
 Symbolic constants (local parameter) *should* be used for
 register field values rather than fixed numerical constants. The fields
 may be one or more bits or the entire register.
 
-D4
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D4**
 
 Port connection width **must** match. In module instantiations,
 nets connected to ports must have the same width as the respective port
 declaration.
 
-D5
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D5**
 
 The ranges in both the vector port declaration and the
 net/variable declaration **must** be equal.
 
-D6
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D6**
 
 Operands sizes **must** match. No expression may have its size
 implicitly extended or reduced. In a ``case`` statement, all the
 ``case`` item expressions and the ``case`` expression must have the same
 size.
 
-D7
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D7**
 
 Combinational logic **must** be specified completely (i.e., a
 value must be assigned to the logic outputs for all input combinations).
@@ -698,40 +616,34 @@ In a construct derived from either a ``case`` or an ``if`` statement,
 the outputs may be assigned default values before the ``case`` or ``if``
 statement, and then the logic is completely specified.
 
-D8
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D8**
 
 The sensitivity list of Verilog ``always`` and VHDL ``process``
 constructs **must** be completely specified.
 
-D9
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D9**
 
 Modules **must** be instantiated with full I/O � all port names
 and signal connections must be listed on all module instantiations. Do
 not leave any input ports open (even if they are unused), always tie
 them to 0 or 1. Leave unused outputs open **but do** list them.
 
-D10
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D10**
 
 A ``timescale`` directive that is best for simulation *should*
 be used in Verilog modules.
 
-D11
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D11**
 
 Compile warnings **must** be treated as potential errors and
 *should* always try to be resolved. In case a warning is not resolved
 its cause and effects must be fully understood.
 
-D12
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D12**
 
 Critical warnings **must** be treated and fixed.
 
-D13
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**D13**
 
 Each file **must** contain a license header, and when changes
 are made to a file, when making a PR, the year *should* be updated to
