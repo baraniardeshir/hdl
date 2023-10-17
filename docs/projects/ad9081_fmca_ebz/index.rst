@@ -490,7 +490,7 @@ for that project (ad9081_fmca_ebz/carrier or ad9082_fmca_ebz/carrier).
 
    ``NP`` notation is equivalent with ``N'``
 
-.. dropdown:: Default values of the ``make`` parameters for AD9081-FMCA-EBZ
+.. collapsible:: Default values of the ``make`` parameters for AD9081-FMCA-EBZ
 
    +-------------------+------------------------------------------------------+
    | Parameter         | Default value of the parameters depending on carrier |
@@ -552,7 +552,7 @@ for that project (ad9081_fmca_ebz/carrier or ad9082_fmca_ebz/carrier).
    | DAC_DO_MEM_TYPE   |      --- |    --- |    --- |      2 |   --- |    --- |
    +-------------------+----------+--------+--------+--------+-------+--------+
 
-.. dropdown:: Default values of the ``make`` parameters for AD9082-FMCA-EBZ
+.. collapsible:: Default values of the ``make`` parameters for AD9082-FMCA-EBZ
 
    +-------------------+-----------------------------------------------+
    | Parameter         | Default value of the parameters               |

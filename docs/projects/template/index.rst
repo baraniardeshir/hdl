@@ -440,7 +440,7 @@ configure this project, depending on the carrier used.
 Where a cell contains a --- (dash) it means that the parameter doesn't exist
 for that project (ad9081_fmca_ebz/carrier or ad9082_fmca_ebz/carrier).
 
-.. dropdown:: Default values of the ``make`` parameters for AD9082-FMCA-EBZ
+.. collapsible:: Default values of the ``make`` parameters for AD9082-FMCA-EBZ
 
    +-------------------+-----------------------------------------------+
    | Parameter         | Default value of the parameters               |
