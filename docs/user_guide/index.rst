@@ -10,7 +10,6 @@ User Guide
    Git repository <git_repository>
    Releases <releases>
    Build an HDL project <build_hdl>
-   Software solutions <software_solutions>
    HDL architecture <architecture>
    IP cores <ip_cores>
    Customize HDL projects <customize_hdl>
@@ -33,7 +32,6 @@ Contents
 #. :ref:`git_repository`: Our HDL GitHub repository
 #. :ref:`releases`: Releases and supported tool versions
 #. :ref:`build_hdl`: Building and generating the programming files
-#. :ref:`software_solutions`: Running software on hardware
 #. :ref:`architecture`: HDL project architecture explained
 #. :ref:`ip_cores`: List of IP cores
 #. :ref:`customize_hdl`: Using and modifying the HDL design
