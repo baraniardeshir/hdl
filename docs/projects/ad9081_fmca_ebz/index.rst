@@ -261,17 +261,19 @@ Meaning of these parameters:
 -  [RX/TX]_JESD_S: number of samples per frame
 -  [RX/TX]_JESD_NP: number of bits per sample
 -  [RX/TX]_NUM_LINKS: number of links
--  [RX/TX]_TPL_WIDTH:
--  TDD_SUPPORT:
--  SHARED_DEVCLK:
--  TDD_CHANNEL_CNT:
--  TDD_SYNC_WIDTH:
--  TDD_SYNC_INT:
--  TDD_SYNC_EXT:
--  TDD_SYNC_EXT_CDC:
+-  [RX/TX]_TPL_WIDTH
+-  TDD_SUPPORT: set to 1, adds the TDD; enables external synchronization through TDD. Must be set to 1 when SHARED_DEVCLK=1
+-  SHARED_DEVCLK
+-  TDD_CHANNEL_CNT
+-  TDD_SYNC_WIDTH
+-  TDD_SYNC_INT
+-  TDD_SYNC_EXT
+-  TDD_SYNC_EXT_CDC: if enabled, the CDC circuitry for the external sync signal is added
 -  [RX/TX]_KS_PER_CHANNEL: Number of samples stored in internal buffers in
    kilosamples per converter (M)
--  [ADC/DAC]_DO_MEM_TYPE:
+-  [ADC/DAC]_DO_MEM_TYPE
+-  Check out this guide on more details regarding these parameters:
+   :dokuwiki:`resources/fpga/docs/axi_tdd`
 
 Clock scheme
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

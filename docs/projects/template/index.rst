@@ -105,6 +105,39 @@ Configuration modes
 
 \**\* MENTION IF ANY MODES ARE AVAILABLE FOR CONFIGURATION \**\*
 
+**EXAMPLES BUT NOT LIMITED TO**
+
+Meaning of these parameters:
+
+-  JESD_MODE: used link layer encoder mode
+
+   -  64B66B - 64b66b link layer defined in JESD204C, uses AMD IP as Physical
+      Layer
+   -  8B10B  - 8b10b link layer defined in JESD204B, uses ADI IP as Physical
+      Layer
+
+-  RX_LANE_RATE: lane rate of the Rx link (MxFE to FPGA)
+-  TX_LANE_RATE: lane rate of the Tx link (FPGA to MxFE)
+-  REF_CLK_RATE: the rate of the reference clock
+-  [RX/TX]_JESD_M: number of converters per link
+-  [RX/TX]_JESD_L: number of lanes per link
+-  [RX/TX]_JESD_S: number of samples per frame
+-  [RX/TX]_JESD_NP: number of bits per sample
+-  [RX/TX]_NUM_LINKS: number of links
+-  [RX/TX]_TPL_WIDTH
+-  TDD_SUPPORT: set to 1, adds the TDD; enables external synchronization through TDD. Must be set to 1 when SHARED_DEVCLK=1
+-  SHARED_DEVCLK
+-  TDD_CHANNEL_CNT
+-  TDD_SYNC_WIDTH
+-  TDD_SYNC_INT
+-  TDD_SYNC_EXT
+-  TDD_SYNC_EXT_CDC: if enabled, the CDC circuitry for the external sync signal is added
+-  [RX/TX]_KS_PER_CHANNEL: Number of samples stored in internal buffers in
+   kilosamples per converter (M)
+-  [ADC/DAC]_DO_MEM_TYPE
+-  Check out this guide on more details regarding these parameters:
+   :dokuwiki:`resources/fpga/docs/axi_tdd`
+
 Clock scheme
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
