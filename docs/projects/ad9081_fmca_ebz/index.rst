@@ -104,54 +104,12 @@ Supported carriers
 Block design
 -------------------------------------------------------------------------------
 
-Configuration modes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-The block design supports configuration of parameters and scales.
-
-We have listed a couple of examples at section **Building the HDL project**.
-
-.. note::
-
-   The parameters for Rx or Tx links can be changed from the
-   **system_project.tcl** file, located in
-   hdl/projects/ad9081_fmca_ebz/$CARRIER/system_project.tcl
-
-.. warning::
-
-   ``Lane Rate = I/Q Sample Rate x M x N' x (10 \ 8) \ L``
-
-Meaning of these parameters:
-
--  JESD_MODE: used link layer encoder mode
-
-   -  64B66B - 64b66b link layer defined in JESD204C, uses AMD IP as Physical
-      Layer
-   -  8B10B  - 8b10b link layer defined in JESD204B, uses ADI IP as Physical
-      Layer
-
--  RX_LANE_RATE: lane rate of the Rx link (MxFE to FPGA)
--  TX_LANE_RATE: lane rate of the Tx link (FPGA to MxFE)
--  REF_CLK_RATE: the rate of the reference clock
--  [RX/TX]_JESD_M: number of converters per link
--  [RX/TX]_JESD_L: number of lanes per link
--  [RX/TX]_JESD_S: number of samples per frame
--  [RX/TX]_JESD_NP: number of bits per sample
--  [RX/TX]_NUM_LINKS: number of links
--  [RX/TX]_TPL_WIDTH:
--  TDD_SUPPORT:
--  SHARED_DEVCLK:
--  TDD_CHANNEL_CNT:
--  TDD_SYNC_WIDTH:
--  TDD_SYNC_INT:
--  TDD_SYNC_EXT:
--  TDD_SYNC_EXT_CDC:
--  [RX/TX]_KS_PER_CHANNEL: Number of samples stored in internal buffers in
-   kilosamples per converter (M)
--  [ADC/DAC]_DO_MEM_TYPE:
-
 Block diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Default configuration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 Example block design for Single link; M=8; L=4
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -269,6 +227,52 @@ The Tx link is operating with the following parameters:
 -  JESD204C Lane Rate: 16.5Gbps
 -  QPLL1
 
+Configuration modes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The block design supports configuration of parameters and scales.
+
+We have listed a couple of examples at section **Building the HDL project**.
+
+.. note::
+
+   The parameters for Rx or Tx links can be changed from the
+   **system_project.tcl** file, located in
+   hdl/projects/ad9081_fmca_ebz/$CARRIER/system_project.tcl
+
+.. warning::
+
+   ``Lane Rate = I/Q Sample Rate x M x N' x (10 \ 8) \ L``
+
+Meaning of these parameters:
+
+-  JESD_MODE: used link layer encoder mode
+
+   -  64B66B - 64b66b link layer defined in JESD204C, uses AMD IP as Physical
+      Layer
+   -  8B10B  - 8b10b link layer defined in JESD204B, uses ADI IP as Physical
+      Layer
+
+-  RX_LANE_RATE: lane rate of the Rx link (MxFE to FPGA)
+-  TX_LANE_RATE: lane rate of the Tx link (FPGA to MxFE)
+-  REF_CLK_RATE: the rate of the reference clock
+-  [RX/TX]_JESD_M: number of converters per link
+-  [RX/TX]_JESD_L: number of lanes per link
+-  [RX/TX]_JESD_S: number of samples per frame
+-  [RX/TX]_JESD_NP: number of bits per sample
+-  [RX/TX]_NUM_LINKS: number of links
+-  [RX/TX]_TPL_WIDTH:
+-  TDD_SUPPORT:
+-  SHARED_DEVCLK:
+-  TDD_CHANNEL_CNT:
+-  TDD_SYNC_WIDTH:
+-  TDD_SYNC_INT:
+-  TDD_SYNC_EXT:
+-  TDD_SYNC_EXT_CDC:
+-  [RX/TX]_KS_PER_CHANNEL: Number of samples stored in internal buffers in
+   kilosamples per converter (M)
+-  [ADC/DAC]_DO_MEM_TYPE:
+
 Clock scheme
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -290,9 +294,6 @@ The clock sources depend on the carrier that is used:
    :align: center
    :alt: AD9081-FMCA-EBZ VCU118 clock scheme
 
-Description of components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 Limitations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -309,30 +310,36 @@ SPI connections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 .. list-table::
-   :widths: 10 20 20 20 20 10
+   :widths: 25 25 25 25
    :header-rows: 1
 
    * - SPI type
      - SPI manager instance
-     - Alias
-     - Address
      - SPI subordinate
      - CS nb.
    * - PS
-     - SPI 0
      - spi0
-     - 0xFF040000
      - AD9081
      - 0
    * - PS
-     - SPI 1
      - spi1
-     - 0xFF050000
      - HMC7044
      - 0
 
 GPIOs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The general rule of thumb is to define 64 GPIO pins for the base design:
+
+-  bits [31: 0] always belong to the carrier board;
+-  bits [63:32] will be assigned to switches, buttons and/or LEDs, which
+   can be found on the FMC board.
+-  bits [95:64] will be used when the FPGA type is Zynq UltraScale+
+   MPSoC
+
+When some of these GPIOs are not used, the input pins should have the
+output pins driven to them, so that Vivado will not complain about
+inputs not being assigned to.
 
 The Software GPIO number is calculated as follows:
 

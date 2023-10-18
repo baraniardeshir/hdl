@@ -53,9 +53,6 @@ Clock scheme
 -  External clock source connected to J1 (CLOCK IN)
 -  For maximum performance, give a 500 MHz clock
 
-Description of components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 To make the connection between the :part:`EVAL-AD9783` evaluation board and
 the carrier using SPI, some hardware changes must be done to the evaluation
 board. These are presented in detail in the **Connections and hardware changes**
@@ -69,19 +66,15 @@ hardware changes must be done, which are explained in the system level
 documentation.
 
 .. list-table::
-   :widths: 10 20 20 20 20 10
+   :widths: 25 25 25 25
    :header-rows: 1
 
    * - SPI type
      - SPI manager instance
-     - Alias
-     - Address
      - SPI subordinate
      - CS nb
    * - PS
      - SPI 0
-     - spi_fpga
-     - 0xFF040000
      - AD9783
      - 0
 

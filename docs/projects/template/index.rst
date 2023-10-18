@@ -33,15 +33,56 @@ Supported carriers
 -------------------------------------------------------------------------------
 
 **\*At least one. Should be updated each time the project is ported to
-another carrier**\ \*
+another carrier. Take these tables as an example:**\ \*
+
+.. list-table::
+   :widths: 35 35 30
+   :header-rows: 1
+
+   * - Evaluation board
+     - Carrier
+     - FMC slot
+   * - :part:`AD9081-FMCA-EBZ <EVAL-AD9081>`
+     - `A10SoC`_
+     - FMCA
+   * -
+     - :xilinx:`VCK190`
+     - FMC0
+   * -
+     - :xilinx:`VCU118`
+     - FMC+
+   * -
+     - :xilinx:`VCU128`
+     - FMC+
+   * -
+     - :xilinx:`ZCU102`
+     - FMC HPC0
+   * -
+     - :xilinx:`ZC706`
+     - FMC HPC
+
+.. list-table::
+   :widths: 35 35 30
+   :header-rows: 1
+
+   * - Evaluation board
+     - Carrier
+     - FMC slot
+   * - :part:`AD9082-FMCA-EBZ <EVAL-AD9082>`
+     - :xilinx:`VCK190`
+     - FMC0
+   * -
+     - :xilinx:`VCU118`
+     - FMC+
+   * -
+     - :xilinx:`ZCU102`
+     - FMC HPC0
+   * -
+     - :xilinx:`ZC706`
+     - FMC HPC
 
 Block design
 -------------------------------------------------------------------------------
-
-Configuration modes
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-\**\* MENTION IF ANY MODES ARE AVAILABLE FOR CONFIGURATION \**\*
 
 Block diagram
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -51,10 +92,18 @@ the below diagram:
 
 \*\* TIP: upload the .svg file for the diagram to have high quality \*\*
 
+If the project has multiple ways of configuration, then make subsections to
+this section and show the default configuration and some other popular modes.
+
 .. image:: ../images/ad9783_zcu102_block_diagram.svg
    :width: 800
    :align: center
    :alt: AD9783-EBZ/ZCU102 block diagram
+
+Configuration modes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+\**\* MENTION IF ANY MODES ARE AVAILABLE FOR CONFIGURATION \**\*
 
 Clock scheme
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -67,17 +116,11 @@ Clock scheme
 \*\* ADD IMAGE IF APPLIES! TIP: upload the .svg file for the diagram to have
 high quality \*\*
 
-Description of components
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-**\*OTHER COMPONENTS FROM THE PROJECT, EX: SYNCHRONA**\ \*
+**\*DESCRIBE OTHER COMPONENTS FROM THE PROJECT, EX: SYNCHRONA**\ \*
 
 Only the channels presented in the clocking selection are relevant. For
 the rest, you can either disable them or just put a divided frequency of
 the source clock.
-
-Configuration of components
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Limitations
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -131,36 +174,42 @@ THESE ARE JUST EXAMPLES!!!
 USE WHICHEVER FITS BEST YOUR CASE
 
 .. list-table::
-   :widths: 10 20 20 20 20 10
+   :widths: 25 25 25 25
    :header-rows: 1
 
    * - SPI type
      - SPI manager instance
-     - Alias
-     - Address
      - SPI subordinate
      - CS nb
    * - PS
      - SPI 0
-     - spi_fpga
-     - 0xFF040000
      - ADXYZT
      - 0
    * - PS
      - SPI 1
-     - spi_bus_0
-     - 0xFF050000
      - AD0000
      - 0
    * - PL
      - axi_spi_bus_1
-     - spi_bus_1
-     - 0x48000000
      - AD23456
      - 0
 
 GPIOs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+**Adapt this explanation to your case**
+
+The general rule of thumb is to define 64 GPIO pins for the base design:
+
+-  bits [31: 0] always belong to the carrier board;
+-  bits [63:32] will be assigned to switches, buttons and/or LEDs, which
+   can be found on the FMC board.
+-  bits [95:64] will be used when the FPGA type is Zynq UltraScale+
+   MPSoC
+
+When some of these GPIOs are not used, the input pins should have the
+output pins driven to them, so that Vivado will not complain about
+inputs not being assigned to.
 
 The Software GPIO number is calculated as follows:
 
@@ -200,16 +249,19 @@ The Software GPIO number is calculated as follows:
 CPU/Memory interconnects addresses
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+**If there are any PL SPI connections, they must be added in this table too**
+
 \**\* THIS IS JUST AN EXAMPLE \**\*
 
-=========== ==========
-Instance    Address
-=========== ==========
-axi_ad4858  0x43c00000
-axi_pwm_gen 0x43d00000
-ad4858_dma  0x43e00000
-adc_clkgen  0x44000000
-=========== ==========
+============= ==========
+Instance      Address
+============= ==========
+axi_ad4858    0x43c00000
+axi_pwm_gen   0x43d00000
+ad4858_dma    0x43e00000
+adc_clkgen    0x44000000
+axi_spi_bus_1 0x48000000
+============= ==========
 
 \**\* THIS IS JUST AN EXAMPLE \**\*
 
@@ -370,27 +422,6 @@ Instance name    HDL Linux Zynq Actual Zynq Linux ZynqMP Actual ZynqMP S10SoC Li
 ---              1   30         62          90           122           18     41              73
 ---              0   29         61          89           121           17     40              72
 ================ === ========== =========== ============ ============= ====== =============== ================
-
-============= === ========== =========== ============ =============
-Instance name HDL Linux Zynq Actual Zynq Linux ZynqMP Actual ZynqMP
-============= === ========== =========== ============ =============
----           15  59         91          111          143
----           14  58         90          110          142
----           13  57         89          109          141
----           12  56         88          108          140
----           11  55         87          107          139
----           10  54         86          106          138
----           9   53         85          105          137
----           8   52         84          104          136
----           7   36         68          96           128
----           6   35         67          95           127
----           5   34         66          94           126
----           4   33         65          93           125
----           3   32         64          92           124
----           2   31         63          91           123
----           1   30         62          90           122
----           0   29         61          89           121
-============= === ========== =========== ============ =============
 
 !!!! These are the project-specific interrupts (usually found in
 /project_name/common/Project_name_bd,tcl).
@@ -685,3 +716,5 @@ and of the device tree.
 .. include:: ../common/more_information.rst
 
 .. include:: ../common/support.rst
+
+.. _A10SoC: https://www.intel.com/content/www/us/en/products/details/fpga/development-kits/arria/10-sx.html
