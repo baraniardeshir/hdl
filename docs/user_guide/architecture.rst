@@ -173,6 +173,8 @@ The general rule of thumb is to define 64 GPIO pins for the base design:
 -  bits [31: 0] always belong to the carrier board;
 -  bits [63:32] will be assigned to switches, buttons and/or LEDs, which
    can be found on the FMC board.
+-  bits [95:64] will be used when the FPGA type is Zynq UltraScale+
+   MPSoC
 
 When some of these GPIOs are not used, the input pins should have the
 output pins driven to them, so that Vivado will not complain about
