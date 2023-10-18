@@ -3,7 +3,12 @@
 ADI IP cores
 ===============================================================================
 
-Here can be found documentations of all the available ADI IP cores.
+Here you can find documentations of all the available ADI IP cores.
+
+Other useful information:
+
+-  `Use ADI IPs`_
+-  `Creating a new IP`_
 
 Frameworks
 -------------------------------------------------------------------------------
@@ -63,3 +68,7 @@ Utilities
 -  `UTIL_RFIFO <util_rfifo>`__
 -  `UTIL_WFIFO <util_wfifo>`__
 -  `UTIL_VAR_FIFO <util_var_fifo>`__
+
+.. _Use ADI IPs: https://wiki.analog.com/resources/fpga/docs/hdl/use_adi_ips
+
+.. _Creating a new IP: https://wiki.analog.com/resources/fpga/docs/hdl/creating_new_ip_guide
