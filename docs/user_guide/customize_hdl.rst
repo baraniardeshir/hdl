@@ -9,7 +9,6 @@ modify and customize the HDL reference designs.
 -  `A simple BBP for RF Transceivers`_
 -  `Model based design for SDR`_
 -  `Integrate FIR filters into the FMCOMMS2 HDL design`_
--  :ref:`porting_project`: Porting an ADI project to a new/unsupported carrier
 
 .. _A simple BBP for RF Transceivers: https://wiki.analog.com/resources/fpga/docs/hdl/xcomm2ip
 
