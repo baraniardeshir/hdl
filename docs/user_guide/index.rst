@@ -12,12 +12,11 @@ User Guide
    Build an HDL project <build_hdl>
    HDL architecture <architecture>
    IP cores <ip_cores>
-   Customize HDL projects <customize_hdl>
    Porting reference designs <porting_project>
+   Customize HDL projects <customize_hdl>
    HDL coding guideline <hdl_coding_guideline>
-   Third party forks <third_party>
-   HDL pull request process <hdl_pr_process>
    Documentation guidelines <docs_guidelines>
+   Third party forks <third_party>
 
 `Analog Devices, Inc.`_ provides FPGA reference designs for selected hardware
 featuring some of our products interfacing to publicly available FPGA
@@ -34,14 +33,12 @@ Contents
 #. :ref:`build_hdl`: Building and generating the programming files
 #. :ref:`architecture`: HDL project architecture explained
 #. :ref:`ip_cores`: List of IP cores
-#. :ref:`customize_hdl`: Using and modifying the HDL design
 #. :ref:`porting_project`: How to port a project to a non-supported carrier
+#. :ref:`customize_hdl`: Using and modifying the HDL design
 #. :ref:`hdl_coding_guideline`: The Verilog/VHDL coding guidelines that the
    HDL team is following
-#. :ref:`third_party`: Third party forks with derived work
-#. :ref:`hdl_pr_process`: The steps for making/reviewing a GitHub Pull Request
-   that the HDL team is following
 #. :ref:`docs_guidelines`: Documentation guidelines
+#. :ref:`third_party`: Third party forks with derived work
 #. :dokuwiki:`Reference designs using AMD Xilinx hardware <resources/alliances/xilinx>`
 #. :dokuwiki:`Reference designs using Intel hardware <resources/alliances/altera>`
 
