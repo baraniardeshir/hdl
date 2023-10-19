@@ -135,7 +135,8 @@ The **sys_zynq** constant variable should be set in the following way:
 
 - 0 - 7 Series FPGA (e.g. Kintex7, Virtex7)
 - 1 - Zynq7000 SoC
-- 2 - Zynq Ultrascale+ SoC
+- 2 - Zynq UltraScale+ SoC
+- 3 - Versal
 
 Example with an Intel board
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
