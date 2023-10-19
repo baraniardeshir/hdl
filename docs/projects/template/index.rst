@@ -230,24 +230,7 @@ USE WHICHEVER FITS BEST YOUR CASE
 GPIOs
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Adapt this explanation to your case**
-
-The general rule of thumb is to define 64 GPIO pins for the base design:
-
--  bits [31: 0] always belong to the carrier board;
--  bits [63:32] will be assigned to switches, buttons and/or LEDs, which
-   can be found on the FMC board.
--  bits [95:64] will be used when the FPGA type is Zynq UltraScale+
-   MPSoC
-
-When some of these GPIOs are not used, the input pins should have the
-output pins driven to them, so that Vivado will not complain about
-inputs not being assigned to.
-
-The Software GPIO number is calculated as follows:
-
--  Zynq-7000: when PS7 is used, the offset is 54
--  Zynq UltraScale: when PS8 is used, the offset is 78
+**Add explanation depending on your case**
 
 .. list-table::
    :widths: 25 20 20 20 15
@@ -255,14 +238,14 @@ The Software GPIO number is calculated as follows:
 
    * - GPIO signal
      - Direction
-     - HDL GPIO EMIO 32
-     - Software GPIO nb
-     - Software GPIO nb
+     - HDL GPIO EMIO
+     - Software GPIO
+     - Software GPIO
    * -
-     - (from FPGA perspectve)
+     - (from FPGA view)
      -
      - Zynq-7000
-     - Zynq UltraScale
+     - Zynq MP
    * - gpio[0:10]
      - INOUT
      - 32-42
