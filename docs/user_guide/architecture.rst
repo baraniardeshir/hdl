@@ -131,14 +131,48 @@ available memory solutions for both Intel and AMD:
 -  AMD's memory interfaces:
    https://www.xilinx.com/products/intellectual-property/mig.html#documentation
 
-Peripheral Interfaces
+Peripheral interfaces
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 These interfaces are used to control external peripherals located on
 the prototyping board or the FMC IO board.
+
 In HDL, these ports are named slightly different than how they're in
 the documentations. Thus, to make it easier for beginners, here you
 have the naming of the ports depending on the microprocessor used.
+
+CPU/Memory interconnects addresses
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The memory addresses that will be used by software are based on the HDL
+addresses of the IP register map, to which an offset is added, depending
+on the architecture of the used FPGA (see also :git-hdl:`ad_cpu_interconnect
+procedure <master:projects/scripts/adi_board.tcl>`; architecture is
+specified by ``sys_zynq`` variable, for AMD FPGAs).
+
+**Zynq-7000 and 7 Series**
+
+The address doesn't change.
+
+**Zynq UltraScale+ MP**
+
+If the address is between 0x4000_0000 - 0x4FFF_FFFF then the
+AXI peripherics will be placed in 0x8000_0000 - 0x8FFF_FFFF range
+by adding 0x4000_0000 to the address.
+
+If the address is between 0x7000_0000 - 0x7FFF_FFFF then the
+AXI peripherics will be placed in 0x9000_0000 - 0x9FFF_FFFF range
+by adding 0x2000_0000 to the address.
+
+**Versal**
+
+If the address is between 0x4400_0000 - 0x4FFF_FFFF then the
+AXI peripherics will be placed in 0xA400_0000 - 0xAFFF_FFFF range
+by adding 0x6000_0000 to the address.
+
+If the address is between 0x7000_0000 - 0x7FFF_FFFF then the
+AXI peripherics will be placed in 0xB000_0000 - 0xBFFF_FFFF range
+by adding 0x4000_0000 to the address.
 
 SPI
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
