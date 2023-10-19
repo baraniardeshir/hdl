@@ -308,6 +308,36 @@ Limitations
    -  https://wiki.analog.com/resources/fpga/peripherals/jesd204/axi_jesd204_rx#restrictions
    -  https://wiki.analog.com/resources/fpga/peripherals/jesd204/axi_jesd204_tx#restrictions
 
+CPU/Memory interconnects addresses
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+The addresses are dependent on the architecture of the FPGA, having an offset
+added to the base address from HDL (see more at :ref:`architecture`).
+
+Below are the software addresses displayed only for the ones that have a
+different address than the HDL one.
+
+Depending on the values of parameters $INTF_CFG, $ADI_PHY_SEL and $TDD_SUPPORT,
+some IPs are instatiated and some are not.
+
+Check-out the table below to find out the conditions.
+
+==================== ================================= =========== =========== ============
+Instance             Depends on parameter              HDL         ZynqMP      Versal
+==================== ================================= =========== =========== ============
+axi_mxfe_rx_xcvr     $INTF_CFG!="TX" & $ADI_PHY_SEL==1 0x44A6_0000 0x84A6_0000 0xA4A6_00000
+rx_mxfe_tpl_core     $INTF_CFG!="TX"                   0x44A1_0000 0x84A1_0000 0xA4A1_00000
+axi_mxfe_rx_jesd     $INTF_CFG!="TX"                   0x44A9_0000 0x84A9_0000 0xA4A9_00000
+axi_mxfe_rx_dma      $INTF_CFG!="TX"                   0x7C42_0000 0x9C42_0000 0xBC42_00000
+mxfe_rx_data_offload $INTF_CFG!="TX"                   0x7C45_0000 0x9C45_0000 0xBC45_00000
+axi_mxfe_tx_xcvr     $INTF_CFG!="RX" & $ADI_PHY_SEL==1 0x44B6_0000 0x84B6_0000 0xA4B6_00000
+tx_mxfe_tpl_core     $INTF_CFG!="RX"                   0x44B1_0000 0x84B1_0000 0xA4B1_00000
+axi_mxfe_tx_jesd     $INTF_CFG!="RX"                   0x44B9_0000 0x84B9_0000 0xA4B9_00000
+axi_mxfe_tx_dma      $INTF_CFG!="RX"                   0x7C43_0000 0x9C43_0000 0xBC43_00000
+mxfe_tx_data_offload $INTF_CFG!="RX"                   0x7C44_0000 0x9C44_0000 0xBC44_00000
+axi_tdd_0            $TDD_SUPPORT==1                   0x7C46_0000 0x9C46_0000 0xBC46_00000
+==================== ================================= =========== =========== ============
+
 SPI connections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -400,30 +430,6 @@ GPIOs
      - 58, 59
      - 112, 113
      - 136, 137
-
-CPU/Memory interconnects addresses
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-Depending on the values of parameters $INTF_CFG, $ADI_PHY_SEL and $TDD_SUPPORT,
-some IPs are instatiated and some are not.
-
-Check-out the table below to find out the conditions.
-
-==================== ================================= ===========
-Instance             Depends on parameter              Address
-==================== ================================= ===========
-axi_mxfe_rx_xcvr     $INTF_CFG!="TX" & $ADI_PHY_SEL==1 0x44A6 0000
-rx_mxfe_tpl_core     $INTF_CFG!="TX"                   0x44A1 0000
-axi_mxfe_rx_jesd     $INTF_CFG!="TX"                   0x44A9 0000
-axi_mxfe_rx_dma      $INTF_CFG!="TX"                   0x7C42 0000
-mxfe_rx_data_offload $INTF_CFG!="TX"                   0x7C45 0000
-axi_mxfe_tx_xcvr     $INTF_CFG!="RX" & $ADI_PHY_SEL==1 0x44B6 0000
-tx_mxfe_tpl_core     $INTF_CFG!="RX"                   0x44B1 0000
-axi_mxfe_tx_jesd     $INTF_CFG!="RX"                   0x44B9 0000
-axi_mxfe_tx_dma      $INTF_CFG!="RX"                   0x7C43 0000
-mxfe_tx_data_offload $INTF_CFG!="RX"                   0x7C44 0000
-axi_tdd_0            $TDD_SUPPORT==1                   0x7C46 0000
-==================== ================================= ===========
 
 Interrupts
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
