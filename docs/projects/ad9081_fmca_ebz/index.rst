@@ -284,7 +284,7 @@ The clock sources depend on the carrier that is used:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: ../images/ad9081_clock_scheme_zcu102.svg
-   :width: 400
+   :width: 800
    :align: center
    :alt: AD9081-FMCA-EBZ ZCU102 clock scheme
 
@@ -292,7 +292,7 @@ The clock sources depend on the carrier that is used:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. image:: ../images/ad9081_clock_scheme_vcu118.svg
-   :width: 450
+   :width: 800
    :align: center
    :alt: AD9081-FMCA-EBZ VCU118 clock scheme
 
