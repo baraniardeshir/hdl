@@ -64,15 +64,12 @@ CPU/Memory interconnects addresses
 The addresses are dependent on the architecture of the FPGA, having an offset
 added to the base address from HDL (see more at :ref:`architecture`).
 
-Below are the software addresses displayed only for the ones that have a
-different address than the HDL one.
-
-============== =========== ===========
-Instance       HDL         ZynqMP
-============== =========== ===========
-axi_ad9783     0x7420_0000 0x9420_0000
-axi_ad9783_dma 0x7C42_0000 0x9C42_0000
-============== =========== ===========
+============== =============== ===========
+Instance       Zynq/Microblaze ZynqMP
+============== =============== ===========
+axi_ad9783     0x7420_0000     0x9420_0000
+axi_ad9783_dma 0x7C42_0000     0x9C42_0000
+============== =============== ===========
 
 SPI connections
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

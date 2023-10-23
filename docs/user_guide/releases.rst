@@ -138,33 +138,20 @@ Release branches
      - `Wiki list for hdl_2014_r1 <https://wiki.analog.com/resources/fpga/docs/hdl/downloads_2014_r1>`_
 
 
-Updating the tools we use
+About the tools we use
 -------------------------------------------------------------------------------
 
 When Intel or AMD have a new release, we usually follow them and update our
 tools in a timely manner.
 
-This means that first one is installing the new tools, changes the version in
-the :git-hdl:`adi_env.tcl <master:scripts/adi_env.tcl>` script, and then
-builds all the affected projects on a build machine.
+Changing the version of tool used on a branch is done by updating the
+git-hdl:`adi_env.tcl <master:scripts/adi_env.tcl>` script.
 
-Meanwhile the projects are being built, the person in charge checks the
-release notes from Intel/AMD to filter the information; there might be updates
-that don't concern us, but there might usually be ones that do concern us and
-really affect us. These will be taken in consideration when one sees a project
-build failing.
+If the tool version is not the one you want to use, keep in mind that when
+making a setup, you will have to build the software files with the same
+version, otherwise you might encounter problems in your setup.
 
-Following this, one checks all the logs and sees if new projects are failing
-and with what errors or critical warnings they're failing. Then the warnings
-are reviewed, because usually they contain some information that might lead
-you to the source of the problem.
-
-Then issues are created on each project to discuss with the team on how to
-proceed with the failing projects.
-
-From the projects that passed, we pick some of them and test them with
-hardware, our most complex and from all of our supported carriers,
-to make sure we cover as much as possible.
-Just keep in mind that when we update the tools we use, this is different
-from when we have a release, as for a release, every project is tested in
-hardware.
+For example, you want to use an older version of Vivado on the master branch
+which uses a newer one. Then you will need to manually build the software
+files from the master branch, with the same version of Vitis too. Or for
+Linux, to use the proper version of CROSS_COMPILE, etc.

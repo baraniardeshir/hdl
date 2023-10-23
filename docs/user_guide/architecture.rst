@@ -152,7 +152,10 @@ specified by ``sys_zynq`` variable, for AMD FPGAs).
 
 **Zynq-7000 and 7 Series**
 
-The address doesn't change.
+Because this was the original target, this is the reference
+address used, the common one, to which depending on the architecture,
+you add an offset to get to the address space for the peripherals (as they
+differ from one to the other).
 
 **Zynq UltraScale+ MP**
 
